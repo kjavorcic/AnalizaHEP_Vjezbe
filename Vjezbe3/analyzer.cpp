@@ -46,7 +46,7 @@ void ElementaryParticle::bosonDecay(ElementaryParticle* decayParticle_1, Element
 
 
     //odredivanje na koje cestice se raspada bozon i njezina masa
-    srand((unsigned) time(NULL));
+    //srand((unsigned) time(NULL));
     float random = rand()%100;
     float mass;
     std::cout << "Random number: " << random << "\n";
@@ -65,10 +65,11 @@ void ElementaryParticle::bosonDecay(ElementaryParticle* decayParticle_1, Element
         decayParticle_2 -> name = "Z Boson";
         mass = 91.1;
     }
-    else 
+    else{
         decayParticle_1 -> name = "B quark";
         decayParticle_2 -> name = "B quark";
         mass = 4.2;
+    }
 
     //podjela kolicine gibanja na dvije cestice
     float random2 = (float)(rand()%100)/100;
