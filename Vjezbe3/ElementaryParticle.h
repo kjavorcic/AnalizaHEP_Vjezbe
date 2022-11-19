@@ -1,29 +1,21 @@
-#pragma once
-#include <iostream>
-#include <string>
-#include <cmath>
-#include <cstdlib>
+#include<iostream>
+#include<cmath>
+#include<cstdlib>
 
+using namespace std;
 
-class ElementaryParticle {
-	private:
-	 std::string name;
-	 float mass;
-	 bool isBoson;
-
-     
-	
-    public:
-	    ElementaryParticle(std::string x, float y, bool z);
-		ElementaryParticle();
-        void printInfo();
-		float E;
-		float px;
-		float py;
-		float pz;
-		void setMomentum(float, float, float);
-		float transversalMomentum();
-		void bosonDecay(ElementaryParticle*, ElementaryParticle*);
-		std::string getName();
-	
+class ElementaryParticle
+{
+   public:
+   ElementaryParticle(string _name, float _mass, bool _isBoson);
+   ElementaryParticle();
+   ~ElementaryParticle();
+   void printInfo();
+   void SetMomentumComponents(float _px, float _py, float _pz);
+   void PrintTransverseMomentum();
+   void bosonDecay(ElementaryParticle *decayParticle_1, ElementaryParticle *decayParticle_2);
+   void SetVariables(string _name, float _mass, bool _isBoson);
+   string name;
+   float mass, px,py,pz,E;
+   bool isBoson;
 };

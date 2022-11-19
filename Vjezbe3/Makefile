@@ -1,11 +1,12 @@
-result: ElementaryParticle.o analyzer.o
-	g++ ElementaryParticle.o analyzer.o -o result
+CC=g++
+CFLAGS=-I.
+DEPS = ElementaryParticle.h
 
-ElementaryParticle.o: ElementaryParticle.cpp
-	g++ -c ElementaryParticle.cpp
+%.o: %.cpp $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
 
-analyzer.o: analyzer.cpp
-	g++ -c analyzer.cpp
+analyzer: analyzer.o ElementaryParticle.o
+	$(CC) -o analyzer analyzer.o ElementaryParticle.o
 
-clean: 
-	rm *.o result *.exe
+clean:
+	rm -rf *.o analyzer
